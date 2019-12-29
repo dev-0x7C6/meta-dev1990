@@ -10,12 +10,15 @@ S = "${WORKDIR}/git"
 
 DEPENDS = "qtbase qtserialport qtwebsockets qtmultimedia qtsvg"
 
+PACKAGECONFIG_rpi ??= " \
+  ${@bb.utils.contains('DISTRO_FEATURES', 'systemd', 'systemd', '', d)} \
+  dispmanx \
+"
+
 PACKAGECONFIG ??= " \
   ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'x11', '', d)} \
   ${@bb.utils.contains('DISTRO_FEATURES', 'systemd', 'systemd', '', d)} \
 "
-
-PACKAGECONFIG_append_rpi = " dispmanx"
 
 PACKAGECONFIG[benchmarks] = "-DBENCHMARKS=ON,-DBENCHMARKS=OFF,googlebenchmark"
 PACKAGECONFIG[dispmanx] = "-DSUPPORT_DISPMANX=ON,-DSUPPORT_DISPMANX=OFF,userland"
