@@ -8,16 +8,20 @@ SRC_URI = "gitsm://github.com/dev-0x7C6/led-frame.git;protocol=ssh;branch=develo
 
 S = "${WORKDIR}/git"
 
-DEPENDS = "qtbase qtserialport qtwebsockets qtmultimedia qtsvg"
-
-PACKAGECONFIG_rpi ??= " \
-  ${@bb.utils.contains('DISTRO_FEATURES', 'systemd', 'systemd', '', d)} \
-  dispmanx \
+DEPENDS = " \
+  qtbase \
+  qtmultimedia \
+  qtserialport \
+  qtsvg \
+  qtwebsockets \
 "
+RASPBERRYPI_DEFAULT_PACKAGECONFIG ??= ""
+RASPBERRYPI_DEFAULT_PACKAGECONFIG_rpi = "dispmanx"
 
 PACKAGECONFIG ??= " \
   ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'x11', '', d)} \
   ${@bb.utils.contains('DISTRO_FEATURES', 'systemd', 'systemd', '', d)} \
+  ${RASPBERRYPI_DEFAULT_PACKAGECONFIG_rpi} \
 "
 
 PACKAGECONFIG[benchmarks] = "-DBENCHMARKS=ON,-DBENCHMARKS=OFF,googlebenchmark"
