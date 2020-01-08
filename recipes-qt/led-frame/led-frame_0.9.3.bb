@@ -29,6 +29,7 @@ PACKAGECONFIG[dispmanx] = "-DSUPPORT_DISPMANX=ON,-DSUPPORT_DISPMANX=OFF,userland
 PACKAGECONFIG[systemd] =  "-DSYSTEMD=ON,-DSYSTEMD=OFF,systemd"
 PACKAGECONFIG[tests] = "-DTESTS=ON,-DTESTS=OFF,gtest gmock"
 PACKAGECONFIG[x11] =  "-DSUPPORT_X11=ON,-DSUPPORT_X11=OFF,libx11 libxext libxcb"
+PACKAGECONFIG[mobile] =  "-DMOBILE=ON,-DMOBILE=OFF,qtquickcontrols2"
 
 FILES_${PN} += "${@bb.utils.contains("DISTRO_FEATURES", "systemd", "/lib/systemd/system/led-frame.service", "" ,d)"
 
