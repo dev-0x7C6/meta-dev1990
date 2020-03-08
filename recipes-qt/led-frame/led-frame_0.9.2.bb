@@ -19,8 +19,7 @@ RASPBERRYPI_DEFAULT_PACKAGECONFIG ??= ""
 RASPBERRYPI_DEFAULT_PACKAGECONFIG_rpi = "dispmanx"
 
 PACKAGECONFIG ??= " \
-  ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'x11', '', d)} \
-  ${@bb.utils.contains('DISTRO_FEATURES', 'systemd', 'systemd', '', d)} \
+  ${@bb.utils.filter('DISTRO_FEATURES', 'systemd x11', d)} \
   ${RASPBERRYPI_DEFAULT_PACKAGECONFIG} \
 "
 
