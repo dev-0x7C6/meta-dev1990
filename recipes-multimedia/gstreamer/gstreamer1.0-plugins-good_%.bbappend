@@ -1,0 +1,1 @@
+PACKAGECONFIG_append = " libv4l2 v4l2"
