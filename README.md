@@ -6,11 +6,9 @@ This layer depends on:
 ```
   URI: git://git.openembedded.org/openembedded-core
   layers: meta
-  branch: zeus
   
   URI: https://code.qt.io/yocto/meta-qt5.git
   layers: meta
-  branch: 5.14
 ```
 
 ## Patches
