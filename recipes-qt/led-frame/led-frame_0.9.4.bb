@@ -19,7 +19,7 @@ DEPENDS = " \
   qtwebsockets \
 "
 
-PACKAGECONFIG ??= "${@bb.utils.filter('DISTRO_FEATURES', 'systemd x11', d)}"
+PACKAGECONFIG ??= "${@bb.utils.filter('DISTRO_FEATURES', 'systemd x11', d)} v4l2"
 
 # Led-frame do not support both X11 and dispmanx
 PACKAGECONFIG_append_rpi = " dispmanx"
@@ -31,6 +31,7 @@ PACKAGECONFIG[systemd] =  "-DSYSTEMD=ON,-DSYSTEMD=OFF,systemd"
 PACKAGECONFIG[tests] = "-DTESTS=ON,-DTESTS=OFF,gtest gmock"
 PACKAGECONFIG[x11] =  "-DSUPPORT_X11=ON,-DSUPPORT_X11=OFF,libx11 libxext libxcb"
 PACKAGECONFIG[mobile] =  "-DMOBILE=ON,-DMOBILE=OFF,qtquickcontrols2"
+PACKAGECONFIG[v4l2] = ",,,gstreamer1.0-plugins-bad gstreamer1.0-plugins-base gstreamer1.0-plugins-good"
 
 LED_FRAME_ENABLE_SERVICE ?= "${@bb.utils.contains('DISTRO_FEATURES', 'systemd', 'true', 'false', d)}"
 LED_FRAME_ENABLE_SERVICE_PATH = "${@bb.utils.contains('LED_FRAME_ENABLE_SERVICE', 'true', '/lib/systemd/system/led-frame.service', '', d)}"
