@@ -7,7 +7,7 @@ PR = "r2"
 
 SRCREV = "v${PV}"
 SRC_URI = " \
-  gitsm://github.com/dev-0x7C6/led-frame.git;protocol=ssh;branch=development;user=git \
+  gitsm://github.com/dev-0x7C6/led-frame.git;protocol=https;branch=development;user=git \
   file://${BPN}-usb-only.conf \
 "
 
