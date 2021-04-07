@@ -2,28 +2,28 @@ SUMMARY = "Packagegroup for all bijin-assets"
 
 inherit packagegroup
 
-RDEPENDS_${PN} = " \
-	bijin-assets-hokkaido \
-	bijin-assets-miyazaki \
-	bijin-assets-niigata \
-	bijin-assets-kanazawa \
-	bijin-assets-hanayome \
-	bijin-assets-tokyo \
-	bijin-assets-kagawa \
-	bijin-assets-jp2014 \
-	bijin-assets-okinawa \
-	bijin-assets-nagoya \
-	bijin-assets-okayama \
-	bijin-assets-sara \
-	bijin-assets-jp \
-	bijin-assets-fukushima \
-	bijin-assets-aomori \
-	bijin-assets-osaka \
-	bijin-assets-saitama \
-	bijin-assets-chiba \
-	bijin-assets-kagoshima \
-	bijin-assets-nara \
-	bijin-assets-shizuoka \
-	bijin-assets-sendai \
-	bijin-assets-vivi \
-"
+PACKAGECONFIG ?= "jp"
+
+PACKAGECONFIG[aomori] = ",,,bijin-assets-aomori"
+PACKAGECONFIG[chiba] = ",,,bijin-assets-chiba"
+PACKAGECONFIG[fukushima] = ",,,bijin-assets-fukushima"
+PACKAGECONFIG[hanayome] = ",,,bijin-assets-hanayome"
+PACKAGECONFIG[hokkaido] = ",,,bijin-assets-hokkaido"
+PACKAGECONFIG[jp2014] = ",,,bijin-assets-jp2014"
+PACKAGECONFIG[jp] = ",,,bijin-assets-jp"
+PACKAGECONFIG[kagawa] = ",,,bijin-assets-kagawa"
+PACKAGECONFIG[kagoshima] = ",,,bijin-assets-kagoshima"
+PACKAGECONFIG[kanazawa] = ",,,bijin-assets-kanazawa"
+PACKAGECONFIG[miyazaki] = ",,,bijin-assets-miyazaki"
+PACKAGECONFIG[nagoya] = ",,,bijin-assets-nagoya"
+PACKAGECONFIG[nara] = ",,,bijin-assets-nara"
+PACKAGECONFIG[niigata] = ",,,bijin-assets-niigata"
+PACKAGECONFIG[okayama] = ",,,bijin-assets-okayama"
+PACKAGECONFIG[okinawa] = ",,,bijin-assets-okinawa"
+PACKAGECONFIG[osaka] = ",,,bijin-assets-osaka"
+PACKAGECONFIG[saitama] = ",,,bijin-assets-saitama"
+PACKAGECONFIG[sara] = ",,,bijin-assets-sara"
+PACKAGECONFIG[sendai] = ",,,bijin-assets-sendai"
+PACKAGECONFIG[shizuoka] = ",,,bijin-assets-shizuoka"
+PACKAGECONFIG[tokyo] = ",,,bijin-assets-tokyo"
+PACKAGECONFIG[vivi] = ",,,bijin-assets-vivi"
