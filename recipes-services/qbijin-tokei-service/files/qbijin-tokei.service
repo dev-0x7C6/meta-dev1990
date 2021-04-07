@@ -1,0 +1,13 @@
+[Unit]
+Description=qbijin-tokei autostart service
+DefaultDependencies=no
+Conflicts=getty@tty1.service
+After=systemd-user-sessions.service easysplash-quit.service
+
+[Service]
+ExecStart=/usr/bin/qbijin-tokei -platform eglfs
+RestartSec=1
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
