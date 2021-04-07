@@ -2,4 +2,8 @@ DESCRIPTION = "Image contains qbijin-tokei"
 
 inherit core-image
 
-IMAGE_INSTALL_append = " qbijin-tokei packagegroup-bijin-assets"
+IMAGE_INSTALL += " \
+  packagegroup-bijin-assets \
+  qbijin-tokei \
+  qbijin-tokei-service \
+"
