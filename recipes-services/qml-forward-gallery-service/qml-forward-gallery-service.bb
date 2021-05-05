@@ -15,7 +15,7 @@ SYSTEMD_AUTO_ENABLE_${PN} = "enable"
 FILES_${PN} += "${systemd_unitdir}/system"
 
 do_compile() {
-	 sed -e 's/@@WALLPAPERS@@/${KERNEL_IMAGETYPE}/' \
+	 sed -e 's/@@WALLPAPERS@@/${WALLPAPER_DIR}/' \
          "${WORKDIR}/qml-forward-gallery.service.in" > "${WORKDIR}/qml-forward-gallery.service"
 }
 
