@@ -1,0 +1,13 @@
+[Unit]
+Description=qml-forward-gallery autostart service
+DefaultDependencies=no
+Conflicts=getty@tty1.service
+After=systemd-user-sessions.service easysplash-quit.service
+
+[Service]
+ExecStart=/usr/bin/qml-forward-gallery -platform eglfs --directory @@WALLPAPERS@@
+RestartSec=1
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
