@@ -14,8 +14,12 @@ SYSTEMD_AUTO_ENABLE_${PN} = "enable"
 
 FILES_${PN} += "${systemd_unitdir}/system"
 
+QML_FORWARD_GALLERY_DIR ?= "${WALLPAPER_DIR}"
+QML_FORWARD_GALLERY_STRETCH ?= "--stretch"
+QML_FORWARD_GALLERY_PARAMETERS ?= "--directory ${QML_FORWARD_GALLERY_DIR} ${QML_FORWARD_GALLERY_STRETCH}"
+
 do_compile() {
-	 sed -e 's#@@WALLPAPERS@@#${WALLPAPER_DIR}#' \
+	 sed -e 's#@@QML_FORWARD_GALLERY_PARAMETERS@@#${QML_FORWARD_GALLERY_PARAMETERS}#' \
          "${WORKDIR}/qml-forward-gallery.service.in" > "${WORKDIR}/qml-forward-gallery.service"
 }
 

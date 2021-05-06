@@ -5,7 +5,7 @@ Conflicts=getty@tty1.service
 After=systemd-user-sessions.service easysplash-quit.service
 
 [Service]
-ExecStart=/usr/bin/qml-forward-gallery -platform eglfs --directory @@WALLPAPERS@@
+ExecStart=/usr/bin/qml-forward-gallery -platform eglfs @@QML_FORWARD_GALLERY_PARAMETERS@@
 RestartSec=1
 Restart=on-failure
 
