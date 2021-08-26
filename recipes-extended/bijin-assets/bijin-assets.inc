@@ -6,7 +6,7 @@ SRC_URI = "https://devwork.space/tokei/${ASSETS_NAME}.tar.gz"
 
 inherit allarch
 
-FILES_${PN} = "${datadir}/bijin-assets/${ASSETS_NAME}"
+FILES:${PN} = "${datadir}/bijin-assets/${ASSETS_NAME}"
 
 do_install() {
 	install -d ${D}${datadir}/bijin-assets

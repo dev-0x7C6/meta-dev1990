@@ -9,10 +9,10 @@ inherit allarch features_check systemd wallpapers
 
 REQUIRED_DISTRO_FEATURES = "systemd"
 
-SYSTEMD_SERVICE_${PN} = "qml-forward-gallery.service"
-SYSTEMD_AUTO_ENABLE_${PN} = "enable"
+SYSTEMD_SERVICE:${PN} = "qml-forward-gallery.service"
+SYSTEMD_AUTO_ENABLE:${PN} = "enable"
 
-FILES_${PN} += "${systemd_unitdir}/system"
+FILES:${PN} += "${systemd_unitdir}/system"
 
 QML_FORWARD_GALLERY_DIR ?= "${WALLPAPER_DIR}"
 QML_FORWARD_GALLERY_DEFAULTS ?= "--sort --random"

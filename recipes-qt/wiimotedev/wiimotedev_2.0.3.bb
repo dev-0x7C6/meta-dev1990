@@ -20,4 +20,4 @@ PACKAGECONFIG[daemon] = "-DBUILD_DAEMON=ON,-DBUILD_DAEMON=OFF"
 PACKAGECONFIG[io] =  "-DBUILD_IO=ON,-DBUILD_IO=OFF"
 PACKAGECONFIG[manager] =  "-DBUILD_MANAGER=ON,-DBUILD_MANAGER=OFF"
 
-FILES_${PN} += "${libdir}/systemd/system"
+FILES:${PN} += "${libdir}/systemd/system"

@@ -9,7 +9,7 @@ SRC_URI[sha256sum] = "f3e59b4d30a7fa3663e157fdfb8100a1019a5b3fb94af732045a3f5a3d
 inherit allarch wallpapers wallpapers-resize
 
 ANIME_SELECTION_DIR = "${WALLPAPER_DIR}/anime-selection/2021Q2"
-FILES_${PN} = "${ANIME_SELECTION_DIR}"
+FILES:${PN} = "${ANIME_SELECTION_DIR}"
 
 do_install() {
     install -d ${D}${ANIME_SELECTION_DIR}

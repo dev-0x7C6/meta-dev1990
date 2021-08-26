@@ -11,13 +11,13 @@ DEMO_SERVICE_NAME = "qt-kiosk-browser-demo.service"
 
 SRC_URI = "file://${DEMO_SERVICE_NAME} file://qt-kiosk-browser.conf"
 
-SYSTEMD_SERVICE_${PN} = "${DEMO_SERVICE_NAME}"
-SYSTEMD_AUTO_ENABLE_${PN} = "enable"
+SYSTEMD_SERVICE:${PN} = "${DEMO_SERVICE_NAME}"
+SYSTEMD_AUTO_ENABLE:${PN} = "enable"
 
 DEPENDS += "demo-user"
-RDEPENDS_${PN} += "systemd qt-kiosk-browser demo-user "
+RDEPENDS:${PN} += "systemd qt-kiosk-browser demo-user "
 
-FILES_${PN} += "${systemd_unitdir}/system"
+FILES:${PN} += "${systemd_unitdir}/system"
 
 do_install() {
 	install -d ${D}${systemd_unitdir}/system

@@ -14,4 +14,4 @@ PACKAGECONFIG ?= "quickcompiler"
 PACKAGECONFIG[quickcompiler] = "-DENABLE_QT_QUICK_COMPILER=ON,-DENABLE_QT_QUICK_COMPILER=OFF,qtdeclarative-native"
 
 DEPENDS = "qtbase qtquickcontrols2"
-RDEPENDS_${PN} += "qtquickcontrols2"
+RDEPENDS:${PN} += "qtquickcontrols2"

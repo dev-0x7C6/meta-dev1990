@@ -14,4 +14,4 @@ PACKAGECONFIG ?= "quickcompiler"
 PACKAGECONFIG[quickcompiler] = "-DENABLE_QT_QUICK_COMPILER=ON,-DENABLE_QT_QUICK_COMPILER=OFF,qtdeclarative-native"
 
 DEPENDS = "qtbase qtquickcontrols2 qtgraphicaleffects"
-RDEPENDS_${PN} += "qtquickcontrols2 qtgraphicaleffects"
+RDEPENDS:${PN} += "qtquickcontrols2 qtgraphicaleffects"

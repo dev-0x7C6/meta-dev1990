@@ -25,8 +25,8 @@ DEPENDS = " \
 PACKAGECONFIG ??= "${@bb.utils.filter('DISTRO_FEATURES', 'systemd x11', d)} v4l2 usb-only"
 
 # Led-frame do not support both X11 and dispmanx
-PACKAGECONFIG_append_rpi = " dispmanx"
-PACKAGECONFIG_remove_rpi = "x11"
+PACKAGECONFIG:append:rpi = " dispmanx"
+PACKAGECONFIG:remove:rpi = "x11"
 
 PACKAGECONFIG[benchmarks] = "-DBENCHMARKS=ON,-DBENCHMARKS=OFF,googlebenchmark"
 PACKAGECONFIG[dispmanx] = "-DSUPPORT_DISPMANX=ON,-DSUPPORT_DISPMANX=OFF,userland"
@@ -40,9 +40,9 @@ PACKAGECONFIG[usb-only] = ""
 LED_FRAME_ENABLE_SERVICE ?= "${@bb.utils.contains('DISTRO_FEATURES', 'systemd', 'true', 'false', d)}"
 LED_FRAME_ENABLE_SERVICE_PATH = "${@bb.utils.contains('LED_FRAME_ENABLE_SERVICE', 'true', '/lib/systemd/system/led-frame.service', '', d)}"
 
-FILES_${PN} += "${LED_FRAME_ENABLE_SERVICE_PATH} /etc/${BPN}/serial.conf"
+FILES:${PN} += "${LED_FRAME_ENABLE_SERVICE_PATH} /etc/${BPN}/serial.conf"
 
-do_install_append() {
+do_install:append() {
   if ${LED_FRAME_ENABLE_SERVICE}; then
     systemctl --root=${D} enable led-frame.service
   fi
