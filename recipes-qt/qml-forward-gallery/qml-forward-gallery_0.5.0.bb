@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=1ebbd3e34237af26da5dc08a4e440464"
 
 inherit cmake_qt5
 
-SRCREV = "v0.5.0"
+SRCREV = "7cb650d1301c5ca840097ffb0622de628b4ffa37"
 SRC_URI = "gitsm://github.com/dev-0x7C6/${BPN}.git;protocol=https;user=git;branch=main"
 S = "${WORKDIR}/git"
 

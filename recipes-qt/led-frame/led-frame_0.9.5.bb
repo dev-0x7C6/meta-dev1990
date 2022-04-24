@@ -1,11 +1,11 @@
-LICENSE = "GPLv3"
+LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1ebbd3e34237af26da5dc08a4e440464"
 
 inherit cmake_qt5
 
 PR = "r2"
 
-SRCREV = "v${PV}"
+SRCREV = "da900da47ecdf963c2bcd43c992c2ee769686daf"
 SRC_URI = " \
   gitsm://github.com/dev-0x7C6/led-frame.git;protocol=https;branch=development;user=git \
   file://${BPN}-usb-only.conf \

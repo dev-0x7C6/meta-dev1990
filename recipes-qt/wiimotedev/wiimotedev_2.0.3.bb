@@ -1,11 +1,11 @@
 DESCRIPTION = "Userspace driver for wiiremotes. It works as system service and trigger dbus events."
 
-LICENSE = "GPL-3.0"
+LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=4fbd65380cdd255951079008b364516c"
 
 inherit cmake_qt5
 
-SRCREV = "v${PV}"
+SRCREV = "3e121c9ee0d56de1ad3113b2ae0593c9a4b5ccc4"
 SRC_URI = "gitsm://github.com/dev-0x7C6/wiimotedev.git;protocol=https;branch=master;user=git"
 
 S = "${WORKDIR}/git"

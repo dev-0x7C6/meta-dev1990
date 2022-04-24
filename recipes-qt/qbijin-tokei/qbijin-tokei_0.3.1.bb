@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=1ebbd3e34237af26da5dc08a4e440464"
 
 inherit cmake_qt5
 
-SRCREV = "v0.3.1"
+SRCREV = "f1407277af72527935e5c5fc951dfb8ab4926bc4"
 SRC_URI = "gitsm://github.com/dev-0x7C6/qbijin-tokei.git;protocol=https;user=git;branch=main"
 S = "${WORKDIR}/git"
 
