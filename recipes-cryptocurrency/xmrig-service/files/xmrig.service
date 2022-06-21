@@ -7,8 +7,8 @@ Conflicts=getty@tty1.service
 ExecStartPre=+/lib/systemd/systemd-networkd-wait-online --any
 ExecStartPre=-/usr/bin/randomx_boost.sh
 ExecStartPre=-/usr/bin/enable_1gb_pages.sh
-ExecStartPre=/usr/bin/xmrig -p %H-%m --config=/etc/xmrig/config.json --dry-run
-ExecStart=/usr/bin/xmrig -p %H-%m --config=/etc/xmrig/config.json
+ExecStartPre=/usr/bin/xmrig --user-agent %H-%m --config=/etc/xmrig/config.json --dry-run
+ExecStart=/usr/bin/xmrig --user-agent %H-%m --config=/etc/xmrig/config.json
 StandardInput=tty
 StandardOutput=tty
 StandardError=tty
