@@ -2,20 +2,18 @@ SUMMARY = "RandomX, CryptoNight and Argon2 CPU miner"
 LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=84dcc94da3adb52b53ae4fa38fe49e5d"
 
-DEPENDS = "libuv openssl hwloc"
+DEPENDS = "libuv openssl hwloc virtual/crypt"
 
 SRC_URI = " \
   git://github.com/xmrig/xmrig.git;protocol=https;branch=master \
   file://0001-Recognize-armv7ve-as-valid-ARMv7-target.patch \
 "
-SRCREV = "56c95703a555e8bdf773b51ea475be9ad58c4333"
+SRCREV = "834ea445072e50ffc385d7b88ee395c1e8ce957f"
 
 S = "${WORKDIR}/git"
-PR = "r3"
+PR = "r4"
 
 inherit cmake pkgconfig
-
-RDEPENDS:${PN} += "bash"
 
 ARM_TYPE:armv7a = "armv7a"
 ARM_TYPE:armv7ve = "armv7ve"
@@ -31,6 +29,11 @@ def map_host_arch_to_uname_arch(host_arch):
         return "ppc64"
     return host_arch
 
+RDEPENDS:${PN} += "bash"
+RDEPENDS:${PN}:append:x86-64 = " msr-tools"
+RDEPENDS:${PN}:append:x86 = " msr-tools"
+
+SECURITY_STACK_PROTECTOR = ""
 
 do_configure:prepend() {
     # Set minimal and default donate level to 0
