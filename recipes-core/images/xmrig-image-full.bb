@@ -1,4 +1,4 @@
-DESCRIPTION = "Core image with xmrig"
+DESCRIPTION = "Core image with xmrig with tools"
 
 require xmrig-image.inc
 
