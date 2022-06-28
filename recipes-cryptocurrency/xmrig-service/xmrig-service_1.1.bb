@@ -7,6 +7,8 @@ SRC_URI = "file://xmrig.service"
 
 inherit allarch features_check systemd
 
+PR = "r1"
+
 RDEPENDS:${PN} += "xmrig xmrig-config"
 
 INHIBIT_DEFAULT_DEPS = "1"

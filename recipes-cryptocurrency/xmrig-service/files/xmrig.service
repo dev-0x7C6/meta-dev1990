@@ -1,35 +1,21 @@
 [Unit]
 Description=XMRig Monero Miner
-AssertFileNotEmpty=/etc/xmrig/config.json
+AssertFileNotEmpty=/etc/xmrig/config.json.in
 Conflicts=getty@tty1.service
 
 [Service]
+ExecStartPre=+/bin/cp /etc/xmrig/config.json.in /etc/xmrig/config.json
+ExecStartPre=+/bin/sed -i "s/@@DOT_RIG_ID@@/.%H-%m/g" /etc/xmrig/config.json
 ExecStartPre=+/lib/systemd/systemd-networkd-wait-online --any
 ExecStartPre=-/usr/bin/randomx_boost.sh
 ExecStartPre=-/usr/bin/enable_1gb_pages.sh
-ExecStartPre=/usr/bin/xmrig --user-agent %H-%m --config=/etc/xmrig/config.json --dry-run
-ExecStart=/usr/bin/xmrig --user-agent %H-%m --config=/etc/xmrig/config.json
+ExecStartPre=/usr/bin/xmrig --config=/etc/xmrig/config.json --dry-run
+ExecStart=/usr/bin/xmrig --config=/etc/xmrig/config.json
 StandardInput=tty
 StandardOutput=tty
 StandardError=tty
 TTYPath=/dev/tty1
 Restart=always
-DynamicUser=true
-Nice=10
-PrivateTmp=true
-ProtectHome=true
-ProtectSystem=strict
-NoNewPrivileges=true
-CapabilityBoundingSet=
-ProtectKernelModules=true
-ProtectKernelTunables=true
-ProtectKernelLogs=true
-ProtectControlGroups=true
-RestrictRealtime=true
-RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
-RestrictNamespaces=true
-PrivateUsers=true
-ConfigurationDirectory=xmrig
 
 [Install]
 WantedBy=multi-user.target
